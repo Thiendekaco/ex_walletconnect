@@ -51,6 +51,14 @@ export const rpcProvidersByChainId: RpcProvidersByChainId = {
       symbol: "ETH",
     },
   },
+  61: {
+    name: "Ether Classic",
+    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:61",
+    token: {
+      name: "Ether",
+      symbol: "ETH",
+    },
+  },
   3666: {
     name: "Jouleverse Mainnet",
     baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:3666",
