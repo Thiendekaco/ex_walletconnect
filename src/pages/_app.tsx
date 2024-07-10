@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const Component_ = Component as any;
 
     return (
     <>
@@ -23,7 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChainDataContextProvider>
         <ClientContextProvider>
           <JsonRpcContextProvider>
-            <Component_ {...pageProps} />
+            <Component {...pageProps} />
           </JsonRpcContextProvider>
         </ClientContextProvider>
       </ChainDataContextProvider>
