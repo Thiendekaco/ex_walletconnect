@@ -29,7 +29,7 @@ export const rpcProvidersByChainId: RpcProvidersByChainId = {
   },
   56789: {
     name: "VELO Labs Mainnet",
-    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:56789",
+    baseURL: "https://nova.velo.org",
     token: {
       name: "NOVA",
       symbol: "NOVA",
@@ -37,7 +37,7 @@ export const rpcProvidersByChainId: RpcProvidersByChainId = {
   },
   42170: {
     name: "Arbitrum Nova",
-    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:61",
+    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:42170",
     token: {
       name: "Ether",
       symbol: "ETH",
@@ -45,22 +45,23 @@ export const rpcProvidersByChainId: RpcProvidersByChainId = {
   },
   1987: {
     name: "Ether Gem",
-    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:1987",
+    baseURL: "https://jsonrpc.egem.io/custom",
     token: {
       name: "Ether",
       symbol: "ETH",
     },
   },
-    61: {
-    name: "Ether Classic",
-    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:61",
+  61: {
+    name: "Ether Classics",
+    baseURL: "https://etc.rivet.link",
     token: {
       name: "Ether",
       symbol: "ETH",
     },
+  },
   3666: {
     name: "Jouleverse Mainnet",
-    baseURL: WALLETCONNECT_RPC_BASE_URL + "&chainId=eip155:3666",
+    baseURL: "https://rpc.jnsdao.com:8503",
     token: {
       name: "J",
       symbol: "J",
