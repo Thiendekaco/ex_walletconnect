@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { createGlobalStyle } from "styled-components";
 import { Toaster } from "react-hot-toast";
-
 import { ClientContextProvider } from "../contexts/ClientContext";
 import { JsonRpcContextProvider } from "../contexts/JsonRpcContext";
 import { ChainDataContextProvider } from "../contexts/ChainDataContext";
@@ -14,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return (
+  const Component_ = Component as any;
+
+    return (
     <>
       <Toaster />
       <Metadata />
@@ -22,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChainDataContextProvider>
         <ClientContextProvider>
           <JsonRpcContextProvider>
-            <Component {...pageProps} />
+            <Component_ {...pageProps} />
           </JsonRpcContextProvider>
         </ClientContextProvider>
       </ChainDataContextProvider>
