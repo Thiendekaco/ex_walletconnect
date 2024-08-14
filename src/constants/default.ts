@@ -17,6 +17,7 @@ export const DEFAULT_MAIN_CHAINS = [
     "eip155:1987",
     "eip155:42170",
     "eip155:61",
+    "eip155:1287",
   "cosmos:cosmoshub-4",
   "solana:5eykt4UsFv8P8NJdTREpY1vzqKqZKvdp",
   "polkadot:91b171bb158e2d3848fa23a9f1c25182",

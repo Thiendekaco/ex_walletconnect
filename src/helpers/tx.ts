@@ -1,7 +1,7 @@
 import * as encoding from "@walletconnect/encoding";
 
 import { apiGetAccountNonce, apiGetGasPrice } from "./api";
-import { parseEther } from "ethers/lib/utils";
+import { parseEther } from "ethers";
 import { SendCallsParams } from "../constants";
 
 export async function formatTestTransaction(account: string) {
@@ -33,7 +33,7 @@ export async function formatTestTransaction(account: string) {
 
   const tx = {
     from: address,
-    to: address,
+    to: '0x83776A9fD0C96f6AFDaC2f247b8ECC1a01760165',
     data: "0x",
     nonce,
     gasPrice,
@@ -49,7 +49,7 @@ export async function formatTestBatchCall(account: string) {
   // preparing calldata for batch send
   //sepolia pow faucet address
   const receiverAddress = "0x6Cc9397c3B38739daCbfaA68EaD5F5D77Ba5F455";
-  const amountToSend = parseEther("0.0001").toHexString();
+  const amountToSend = parseEther("0.0001").toString(10);
   const calls = [
     {
       to: receiverAddress as `0x${string}`,

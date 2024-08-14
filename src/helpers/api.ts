@@ -51,6 +51,14 @@ export const rpcProvidersByChainId: RpcProvidersByChainId = {
       symbol: "ETH",
     },
   },
+  1287: {
+    name: "Moonbase Alpha",
+    baseURL: "https://moonbase-alpha.drpc.org",
+    token: {
+      name: "DEV",
+      symbol: "DEV",
+    },
+  },
   61: {
     name: "Ether Classics",
     baseURL: "https://etc.rivet.link",

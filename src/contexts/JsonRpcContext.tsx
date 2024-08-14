@@ -1,4 +1,5 @@
-import { BigNumber, utils } from "ethers";
+import { BigNumber } from "bignumber.js";
+import { parseEther, verifyMessage } from "ethers";
 import { createContext, ReactNode, useContext, useState } from "react";
 import * as encoding from "@walletconnect/encoding";
 import { Transaction as EthTransaction } from "@ethereumjs/tx";
@@ -70,7 +71,7 @@ import {
 } from "@multiversx/sdk-core";
 import { UserVerifier } from "@multiversx/sdk-wallet/out/userVerifier";
 import { SignClient } from "@walletconnect/sign-client/dist/types/client";
-import { parseEther } from "ethers/lib/utils";
+
 
 /**
  * Types
@@ -204,9 +205,7 @@ export function JsonRpcContextProvider({
     message: string,
     signature: string,
     address: string
-  ) =>
-    utils.verifyMessage(message, signature).toLowerCase() ===
-    address.toLowerCase();
+  ) => verifyMessage(message, signature).toLowerCase() === address.toLowerCase();
 
   const ping = async () => {
     if (typeof client === "undefined") {
@@ -221,7 +220,7 @@ export function JsonRpcContextProvider({
 
       let valid = false;
 
-      try {
+        try {
         await client.ping({ topic: session.topic });
         valid = true;
       } catch (e) {
@@ -256,8 +255,8 @@ export function JsonRpcContextProvider({
 
         const tx = await formatTestTransaction(account);
 
-        const balance = BigNumber.from(balances[account][0].balance || "0");
-        if (balance.lt(BigNumber.from(tx.gasPrice).mul(tx.gasLimit))) {
+        const balance = new BigNumber (balances[account][0].balance || "0");
+        if (balance.lt(new BigNumber(tx.gasPrice).multipliedBy(tx.gasLimit))) {
           return {
             method: DEFAULT_EIP155_METHODS.ETH_SEND_TRANSACTION,
             address,
@@ -596,8 +595,8 @@ export function JsonRpcContextProvider({
         if (account === undefined)
           throw new Error(`Account for ${caipAccountAddress} not found`);
 
-        const balance = BigNumber.from(balances[account][0].balance || "0");
-        if (balance.lt(parseEther("0.0002"))) {
+        const balance = new BigNumber(balances[account][0].balance || "0");
+        if (balance.lt(new BigNumber(parseEther("0.0002").toString()))) {
           return {
             method: DEFAULT_EIP5792_METHODS.WALLET_SEND_CALLS,
             address,

@@ -63,6 +63,13 @@ export const EIP155ChainData: ChainsMap = {
     slip44: 60,
     testnet: true,
   },
+  "1287": {
+    name: "MoonBase Alpha",
+    id: "eip155:1287",
+    rpc: ["https://moonbase-alpha.drpc.org"],
+    testnet: true,
+    slip44: 60
+  },
   "11155111": {
     name: "Ethereum Sepolia",
     id: "eip155:11155111",
@@ -181,6 +188,11 @@ export const EIP155Metadata: NamespaceMetadata = {
   },
   "1987": {
     name: "Ether Gem",
+    logo: "/assets/" + "eip155-1.png",
+    rgb: EIP155Colors.ethereum,
+  },
+  "1287": {
+    name: "MoonBase Alpha",
     logo: "/assets/" + "eip155-1.png",
     rgb: EIP155Colors.ethereum,
   },

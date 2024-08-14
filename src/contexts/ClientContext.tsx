@@ -176,6 +176,7 @@ export function ClientContextProvider({
         const session = await approval();
         console.log("Established session:", session);
         await onSessionConnected(session);
+        await client.ping({topic: session.topic})
         // Update known pairings after session is connected.
         setPairings(client.pairing.getAll({ active: true }));
       } catch (e) {

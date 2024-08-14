@@ -1,4 +1,6 @@
-import { BigNumber, BigNumberish, providers, utils } from "ethers";
+import { BigNumberish, parseUnits, formatUnits } from "ethers";
+import { JsonRpcProvider } from "ethers";
+import { BigNumber } from "bignumber.js";
 import * as encoding from "@walletconnect/encoding";
 import { TypedDataUtils } from "eth-sig-util";
 import * as ethUtil from "ethereumjs-util";
@@ -152,7 +154,7 @@ export async function verifySignature(
   hash: string,
   rpcUrl: string
 ): Promise<boolean> {
-  const provider = new providers.JsonRpcProvider(rpcUrl);
+  const provider = new JsonRpcProvider(rpcUrl);
   const bytecode = await provider.getCode(address);
   if (
     !bytecode ||
@@ -192,11 +194,11 @@ export const sanitizeDecimals = (value: string, decimals = 18): string => {
 };
 
 export const toWad = (amount: string, decimals = 18): BigNumber => {
-  return utils.parseUnits(sanitizeDecimals(amount, decimals), decimals);
+  return new BigNumber(parseUnits(sanitizeDecimals(amount, decimals), decimals).toString());
 };
 
 export const fromWad = (wad: BigNumberish, decimals = 18): string => {
-  return sanitizeDecimals(utils.formatUnits(wad, decimals), decimals);
+  return sanitizeDecimals(formatUnits(wad, decimals), decimals);
 };
 
 export const LOCALSTORAGE_KEY_TESTNET = "TESTNET";
